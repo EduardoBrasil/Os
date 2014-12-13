@@ -1,0 +1,18 @@
+<h2>Login</h2>
+
+<%= unless @usuarios.errors.empty? %>
+	<div class="errors">
+		<% @usuarios.errors.full_messages.each do |m| %>
+			<div class="errors"> <%= m %></div>
+			<%end%>
+	</div>
+<% end %>
+<%= form_for @usuarios do |f| %>
+	<p><%= f.label :login %> <%= f.text_field :login %></p>
+	<p><%= f.label :senha %> <%= f.senha_field :senha %></p>
+	<p><%= f.submit %></p>
+<% end %>
+
+<%= render 'form' %>
+
+<%= link_to 'Back', usuarios_path %>
