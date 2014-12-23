@@ -1,0 +1,37 @@
+
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+
+
+<div id="fullscreen_bg" class="fullscreen_bg"/>
+
+<div class="container">
+
+  <form class="form-signup">
+
+    <h1 class="form-signin-heading text-muted">Sign In</h1>
+    <input type="text" class="form-control" placeholder="Email address" required="" autofocus="">
+    <input type="password" class="form-control" placeholder="Password" required="">
+    <button class="btn btn-lg btn-primary btn-block" type="submit">
+      Sign In
+       <%= f.submit %>
+    </button>
+  </form>
+
+</div>
+
+   
+  </div>
+
+
+
+<% end %>
+
+<%= render "users/shared/links" %>
+
+
+
+
+
+
