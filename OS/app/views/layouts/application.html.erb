@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,7 +55,7 @@
             <li><%= link_to "Cadastrar Nova OS", "/articles/new"  %></li>
             <li><%= link_to "Formulario ", "/path2"  %></li>
             <li><%= link_to "Reclamações", "/path3"  %></li>
-            <li><%= link_to "Sair", "/users/sign_out"         %></li>
+            <li><%= link_to('Sair', destroy_user_session_path, :method => :delete) %></li>
           </ul>
         </div>
       </div>
@@ -65,8 +67,11 @@
           <%= bootstrap_flash %>
 
 
+
         <p class="notice"><%= notice %>
         <p class="alert"><%= alert%>  
+
+
 
 
           <%= yield %>

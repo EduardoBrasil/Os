@@ -1,5 +1,54 @@
 class ApplicationController < ActionController::Base
-  # Prevent CSRF attacks by raising an exception.
-  # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  class AdminsController < ApplicationController
+  before_action :set_admin, only: [:show, :edit, :update, :destroy]
+
+  respond_to :html
+
+  def index
+    if current_user.present
+    @admins = Admin.all
+    else
+      redirect_to 'posts#index'
+    respond_with(@admins)
+  end
+  end
+
+  def show
+    respond_with(@admin)
+  end
+
+  def new
+    @admin = Admin.new
+    respond_with(@admin)
+  end
+
+  def edit
+  end
+
+  def create
+    @admin = Admin.new(admin_params)
+    @admin.save
+    respond_with(@admin)
+  end
+
+  def update
+    @admin.update(admin_params)
+    respond_with(@admin)
+  end
+
+  def destroy
+    @admin.destroy
+    respond_with(@admin)
+  end
+
+  private
+    def set_admin
+      @admin = Admin.find(params[:id])
+    end
+
+    def admin_params
+      params.require(:admin).permit(:nome, :string)
+    end
+end
+
 end
